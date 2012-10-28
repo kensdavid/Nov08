@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface View : UIView
+@interface View : UIView {
+    float scale;
+    float factor;
+    CGFloat xDir;
+    CGFloat yDir;
+    CGFloat xOffset;
+    CGFloat yOffset;
+    CGFloat xSpeed;
+    CGFloat ySpeed;
+    CGFloat rotateDeg;
+    int dir;
+}
 
 @end

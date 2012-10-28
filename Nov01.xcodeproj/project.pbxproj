@@ -13,6 +13,7 @@
 		BE0867BA163B1D77005F2957 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE0867B8163B1D77005F2957 /* InfoPlist.strings */; };
 		BE0867BC163B1D77005F2957 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0867BB163B1D77005F2957 /* main.m */; };
 		BE0867C0163B1D77005F2957 /* Nov01AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0867BF163B1D77005F2957 /* Nov01AppDelegate.m */; };
+		BE0867CC163B2025005F2957 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0867CB163B2025005F2957 /* View.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		BE0867BD163B1D77005F2957 /* Nov01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nov01-Prefix.pch"; sourceTree = "<group>"; };
 		BE0867BE163B1D77005F2957 /* Nov01AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nov01AppDelegate.h; sourceTree = "<group>"; };
 		BE0867BF163B1D77005F2957 /* Nov01AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nov01AppDelegate.m; sourceTree = "<group>"; };
+		BE0867CA163B2025005F2957 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		BE0867CB163B2025005F2957 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				BE0867BE163B1D77005F2957 /* Nov01AppDelegate.h */,
 				BE0867BF163B1D77005F2957 /* Nov01AppDelegate.m */,
 				BE0867B6163B1D77005F2957 /* Supporting Files */,
+				BE0867CA163B2025005F2957 /* View.h */,
+				BE0867CB163B2025005F2957 /* View.m */,
 			);
 			path = Nov01;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			files = (
 				BE0867BC163B1D77005F2957 /* main.m in Sources */,
 				BE0867C0163B1D77005F2957 /* Nov01AppDelegate.m in Sources */,
+				BE0867CC163B2025005F2957 /* View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +224,14 @@
 		BE0867C4163B1D77005F2957 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nov01/Nov01-Prefix.pch";
 				INFOPLIST_FILE = "Nov01/Nov01-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -229,9 +240,14 @@
 		BE0867C5163B1D77005F2957 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nov01/Nov01-Prefix.pch";
 				INFOPLIST_FILE = "Nov01/Nov01-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
