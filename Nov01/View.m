@@ -95,7 +95,7 @@
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(c, bounds.size.width / 2 + xOffset, bounds.size.height / 2 + yOffset);
     CGContextRotateCTM(c, rotateDeg * M_PI / 180);
-    CGContextScaleCTM(c, scale, scale);
+    CGContextScaleCTM(c, scale, scale); 
     
     //Add a shadow for the large yellow circle
     CGContextSetShadow(c, CGSizeMake(10, 20), 5);
