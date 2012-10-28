@@ -42,6 +42,21 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
+    NSLog(@"self.frame == (%g, %g), %g × %g",
+          self.frame.origin.x,
+          self.frame.origin.y,
+          self.frame.size.width,
+          self.frame.size.height
+          );
+    
+	NSLog(@"self.bounds == (%g, %g), %g × %g",
+          self.bounds.origin.x,
+          self.bounds.origin.y,
+          self.bounds.size.width,
+          self.bounds.size.height
+          );
+    
     // Drawing code
     CGRect bounds = self.bounds;
     /*CGFloat rightEdge = bounds.size.width / 2; //After translate
@@ -122,19 +137,19 @@
     //If the edges of the large circle hit the edge of the screen,
     //switch directions (bounce)
     if(bounds.size.width / 2 + xOffset - scaledRadius + 2 * scaledRadius >= rightEdge) {
-        NSLog(@"Go left!");
+        //NSLog(@"Go left!");
         xDir = -1;
     }
     if(bounds.size.width / 2 + xOffset -scaledRadius <= leftEdge) {
-        NSLog(@"Go right!");
+        //NSLog(@"Go right!");
         xDir = 1;
     }
     if(bounds.size.height / 2 + yOffset -scaledRadius <= topEdge) {
-        NSLog(@"Go down!");
+        //NSLog(@"Go down!");
         yDir = 1;
     }
     if(bounds.size.height / 2 + yOffset -scaledRadius + 2 * scaledRadius >= bottomEdge) {
-        NSLog(@"Go up!");
+        //NSLog(@"Go up!");
         yDir = -1;
     }
     
