@@ -20,6 +20,9 @@
     CGFloat rotateSpeed;
     CGFloat rotateDeg;
     CGFloat speedScale;
+    CGFloat faceColorR;
+    CGFloat faceColorG;
+    CGFloat faceColorB;
     int rotationDir;
     
     

@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor greenColor];
         //Keep the size of the view the same,
 		//but let the center of the view be the origin.
 		/*
@@ -35,6 +35,9 @@
         rotateSpeed = .1 * speedScale;
         rotateDeg = 0;
         rotationDir = 1; //clockwise direction
+        faceColorR = 1.0;
+        faceColorG = 1.0;
+        faceColorB = 0.0;
         
         static const UISwipeGestureRecognizerDirection a[] = {
 			UISwipeGestureRecognizerDirectionRight,
@@ -68,16 +71,19 @@
 
 - (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
 	
-    
+    faceColorG = 0.0;
 }
 
 - (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
 	//littleView.center = [[touches anyObject] locationInView: self];
+    faceColorG = 1.0;
 }
 
 - (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event {
 	//littleView.backgroundColor = [UIColor yellowColor];
     [self switchGrowth];
+    //self.backgroundColor = [UIColor whiteColor];
+    faceColorG = 1.0;
 }
 
 - (void) switchX {
@@ -155,7 +161,8 @@
 	} else if (recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
 		//direction = @"↓";
         [self goDown];
-	}    	
+	} 
+   	//faceColorG = 1.0;
 }
 
 - (void) rotation: (UIRotationGestureRecognizer *) recognizer {
@@ -165,11 +172,13 @@
     else if(recognizer.rotation < 0){
         [self rotateCounterClockwise];
     }
+    //faceColorG = 1.0;
 }
 
 - (void) pinch: (UIPinchGestureRecognizer *) recognizer {
     
     [self changeSpeedBy:recognizer.velocity];
+    //faceColorG = 1.0;
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -237,7 +246,7 @@
     //Create the face using a yellow circle
     CGContextBeginPath(c); //unnecessary here: the path is already empty.
     CGContextAddEllipseInRect(c, r);
-    CGContextSetRGBFillColor(c, 1.0, 1.0, 0.0, 1.0);	//yellow, opaque
+    CGContextSetRGBFillColor(c, faceColorR, faceColorG, faceColorB, 1.0);	//yellow, opaque
     CGContextFillPath(c);
     
     //Create 2 black eyes using circles
