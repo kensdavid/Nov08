@@ -23,14 +23,16 @@
 		CGFloat h = self.bounds.size.height;
 		self.bounds = CGRectMake(-w / 2, -h / 2, w, h);
          */
-        scale = 1;
-        factor = .001;
+        scale = 1;        
+        speedScale = 1;
+        factor = .001 * speedScale;
         xDir = 1;
         yDir = 1;
         xOffset = 0;
         yOffset = 0;
-        xSpeed = .15;
-        ySpeed = .15;
+        xSpeed = .15 * speedScale;
+        ySpeed = .15 * speedScale;
+        rotateSpeed = .1 * speedScale;
         rotateDeg = 0;
         rotationDir = 1; //clockwise direction
         
@@ -51,8 +53,15 @@
 			[self addGestureRecognizer: recognizer];
 		}
         
-        UIRotationGestureRecognizer *recognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotation:)];
+        UIRotationGestureRecognizer *rotateRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotation:)];
+        [self addGestureRecognizer: rotateRecognizer];
+        
+        UIPinchGestureRecognizer *recognizer = [[UIPinchGestureRecognizer alloc]
+                                                initWithTarget: self action: @selector(pinch:)
+                                                ];
         [self addGestureRecognizer: recognizer];
+        
+
     }
     return self;
 }
@@ -121,6 +130,17 @@
     return;
 }
 
+- (void) changeSpeedBy:(CGFloat) speedChange {
+    speedScale *= speedChange;
+    if(speedScale >= 3)
+        speedScale = 3;
+    if(speedScale <= .5)
+        speedScale = .5;
+    rotateSpeed = .1 * speedScale;
+    xSpeed = .15 * speedScale;
+    ySpeed = .15 * speedScale;
+}
+
 
 - (void) swipe: (UISwipeGestureRecognizer *) recognizer {
 	if (recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
@@ -145,6 +165,11 @@
     else if(recognizer.rotation < 0){
         [self rotateCounterClockwise];
     }
+}
+
+- (void) pinch: (UIPinchGestureRecognizer *) recognizer {
+    
+    [self changeSpeedBy:recognizer.velocity];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -180,7 +205,7 @@
 
     CGFloat radius = .3 * bounds.size.width;	//in pixels
     CGFloat scaledRadius = scale * radius;
-    rotateDeg += .1 * rotationDir;
+    rotateDeg += rotateSpeed * rotationDir;
     
     //Create a rect for the large circle
     CGRect r = CGRectMake(
