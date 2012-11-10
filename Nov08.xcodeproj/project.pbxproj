@@ -17,14 +17,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE0867AB163B1D77005F2957 /* Nov01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nov01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0867AB163B1D77005F2957 /* Nov08.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nov08.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0867AF163B1D77005F2957 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE0867B1163B1D77005F2957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE0867B3163B1D77005F2957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BE0867B7163B1D77005F2957 /* Nov01-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nov01-Info.plist"; sourceTree = "<group>"; };
+		BE0867B7163B1D77005F2957 /* Nov08-Info.plist */ = {isa = PBXFileReference; path = "Nov08-Info.plist"; sourceTree = "<group>"; };
 		BE0867B9163B1D77005F2957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE0867BB163B1D77005F2957 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE0867BD163B1D77005F2957 /* Nov01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nov01-Prefix.pch"; sourceTree = "<group>"; };
+		BE0867BD163B1D77005F2957 /* Nov08-Prefix.pch */ = {isa = PBXFileReference; path = "Nov08-Prefix.pch"; sourceTree = "<group>"; };
 		BE0867BE163B1D77005F2957 /* Nov01AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nov01AppDelegate.h; sourceTree = "<group>"; };
 		BE0867BF163B1D77005F2957 /* Nov01AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nov01AppDelegate.m; sourceTree = "<group>"; };
 		BE0867CA163B2025005F2957 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		BE0867A0163B1D77005F2957 = {
 			isa = PBXGroup;
 			children = (
-				BE0867B5163B1D77005F2957 /* Nov01 */,
+				BE0867B5163B1D77005F2957 /* Nov08 */,
 				BE0867AE163B1D77005F2957 /* Frameworks */,
 				BE0867AC163B1D77005F2957 /* Products */,
 			);
@@ -57,7 +57,7 @@
 		BE0867AC163B1D77005F2957 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE0867AB163B1D77005F2957 /* Nov01.app */,
+				BE0867AB163B1D77005F2957 /* Nov08.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,7 +72,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BE0867B5163B1D77005F2957 /* Nov01 */ = {
+		BE0867B5163B1D77005F2957 /* Nov08 */ = {
 			isa = PBXGroup;
 			children = (
 				BE0867BE163B1D77005F2957 /* Nov01AppDelegate.h */,
@@ -81,16 +81,17 @@
 				BE0867CA163B2025005F2957 /* View.h */,
 				BE0867CB163B2025005F2957 /* View.m */,
 			);
+			name = Nov08;
 			path = Nov01;
 			sourceTree = "<group>";
 		};
 		BE0867B6163B1D77005F2957 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE0867B7163B1D77005F2957 /* Nov01-Info.plist */,
+				BE0867B7163B1D77005F2957 /* Nov08-Info.plist */,
 				BE0867B8163B1D77005F2957 /* InfoPlist.strings */,
 				BE0867BB163B1D77005F2957 /* main.m */,
-				BE0867BD163B1D77005F2957 /* Nov01-Prefix.pch */,
+				BE0867BD163B1D77005F2957 /* Nov08-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -98,9 +99,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE0867AA163B1D77005F2957 /* Nov01 */ = {
+		BE0867AA163B1D77005F2957 /* Nov08 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE0867C3163B1D77005F2957 /* Build configuration list for PBXNativeTarget "Nov01" */;
+			buildConfigurationList = BE0867C3163B1D77005F2957 /* Build configuration list for PBXNativeTarget "Nov08" */;
 			buildPhases = (
 				BE0867A7163B1D77005F2957 /* Sources */,
 				BE0867A8163B1D77005F2957 /* Frameworks */,
@@ -110,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = Nov01;
+			name = Nov08;
 			productName = Nov01;
-			productReference = BE0867AB163B1D77005F2957 /* Nov01.app */;
+			productReference = BE0867AB163B1D77005F2957 /* Nov08.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,7 +124,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = BE0867A5163B1D77005F2957 /* Build configuration list for PBXProject "Nov01" */;
+			buildConfigurationList = BE0867A5163B1D77005F2957 /* Build configuration list for PBXProject "Nov08" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -135,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE0867AA163B1D77005F2957 /* Nov01 */,
+				BE0867AA163B1D77005F2957 /* Nov08 */,
 			);
 		};
 /* End PBXProject section */
@@ -229,10 +230,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nov01/Nov01-Prefix.pch";
-				INFOPLIST_FILE = "Nov01/Nov01-Info.plist";
+				GCC_PREFIX_HEADER = "Nov01/Nov08-Prefix.pch";
+				INFOPLIST_FILE = "Nov01/Nov08-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nov08;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -245,10 +246,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Nov01/Nov01-Prefix.pch";
-				INFOPLIST_FILE = "Nov01/Nov01-Info.plist";
+				GCC_PREFIX_HEADER = "Nov01/Nov08-Prefix.pch";
+				INFOPLIST_FILE = "Nov01/Nov08-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nov08;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -256,7 +257,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE0867A5163B1D77005F2957 /* Build configuration list for PBXProject "Nov01" */ = {
+		BE0867A5163B1D77005F2957 /* Build configuration list for PBXProject "Nov08" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE0867C1163B1D77005F2957 /* Debug */,
@@ -265,13 +266,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE0867C3163B1D77005F2957 /* Build configuration list for PBXNativeTarget "Nov01" */ = {
+		BE0867C3163B1D77005F2957 /* Build configuration list for PBXNativeTarget "Nov08" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE0867C4163B1D77005F2957 /* Debug */,
 				BE0867C5163B1D77005F2957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

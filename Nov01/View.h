@@ -18,7 +18,29 @@
     CGFloat xSpeed;
     CGFloat ySpeed;
     CGFloat rotateDeg;
-    int dir;
+    int rotationDir;
+    
+    
 }
+
+-(void)switchX;
+
+-(void)switchY;
+
+-(void)switchGrowth;
+
+-(void)goLeft;
+
+-(void)goRight;
+
+-(void)goUp;
+
+-(void)goDown;
+
+-(void)switchRotation;
+
+-(void)rotateClockwise;
+
+-(void)rotateCounterClockwise;
 
 @end

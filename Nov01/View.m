@@ -32,18 +32,127 @@
         xSpeed = .15;
         ySpeed = .15;
         rotateDeg = 0;
-        dir = 1; //clockwise direction
+        rotationDir = 1; //clockwise direction
+        
+        static const UISwipeGestureRecognizerDirection a[] = {
+			UISwipeGestureRecognizerDirectionRight,
+			UISwipeGestureRecognizerDirectionLeft,
+			UISwipeGestureRecognizerDirectionUp,
+			UISwipeGestureRecognizerDirectionDown
+		};
+		const size_t n = sizeof a / sizeof a[0];
+        
+		for (size_t i = 0; i < n; ++i) {
+			UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]
+                                                    initWithTarget: self action: @selector(swipe:)
+                                                    ];
+            
+			recognizer.direction = a[i];
+			[self addGestureRecognizer: recognizer];
+		}
+        
+        UIRotationGestureRecognizer *recognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotation:)];
+        [self addGestureRecognizer: recognizer];
     }
     return self;
 }
 
+- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
+	
+    
+}
+
+- (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
+	//littleView.center = [[touches anyObject] locationInView: self];
+}
+
+- (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event {
+	//littleView.backgroundColor = [UIColor yellowColor];
+    [self switchGrowth];
+}
+
+- (void) switchX {
+    xDir *= -1;
+    return;
+}
+
+- (void) switchY {
+    yDir *= -1;
+    return;
+}
+
+- (void) switchGrowth {
+    factor *= -1;
+    return;
+}
+
+- (void) goLeft {
+    xDir = -1;
+    return;
+}
+
+- (void) goRight {
+    xDir = 1;
+    return;
+}
+
+- (void) goUp {
+    yDir = -1;
+    return;
+}
+
+- (void) goDown {
+    yDir = 1;
+    return;
+}
+
+- (void) switchRotation {
+    rotationDir *= -1;
+    return;
+}
+
+- (void) rotateClockwise {
+    rotationDir = 1;
+    return;
+}
+
+- (void) rotateCounterClockwise {
+    rotationDir = -1;
+    return;
+}
+
+
+- (void) swipe: (UISwipeGestureRecognizer *) recognizer {
+	if (recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+		//direction = @"→";
+        [self goRight];
+	} else if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+		//direction = @"←";
+        [self goLeft];
+	} else if (recognizer.direction == UISwipeGestureRecognizerDirectionUp) {
+		//direction = @"↑";
+        [self goUp];
+	} else if (recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+		//direction = @"↓";
+        [self goDown];
+	}    	
+}
+
+- (void) rotation: (UIRotationGestureRecognizer *) recognizer {
+    if(recognizer.rotation > 0) {
+        [self rotateClockwise];
+    }
+    else if(recognizer.rotation < 0){
+        [self rotateCounterClockwise];
+    }
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     
-    NSLog(@"self.frame == (%g, %g), %g × %g",
+    /*NSLog(@"self.frame == (%g, %g), %g × %g",
           self.frame.origin.x,
           self.frame.origin.y,
           self.frame.size.width,
@@ -55,7 +164,7 @@
           self.bounds.origin.y,
           self.bounds.size.width,
           self.bounds.size.height
-          );
+          );*/
     
     // Drawing code
     CGRect bounds = self.bounds;
@@ -71,7 +180,7 @@
 
     CGFloat radius = .3 * bounds.size.width;	//in pixels
     CGFloat scaledRadius = scale * radius;
-    rotateDeg += .1 * dir;
+    rotateDeg += .1 * rotationDir;
     
     //Create a rect for the large circle
     CGRect r = CGRectMake(
@@ -127,10 +236,10 @@
     
     //Change growth to shrinking, and back
     if(scale > 1.2 || scale < .1){
-        factor *= -1;
+        [self switchGrowth];
         //Switch rotation direction on bounce
         if (scale < .8) {
-            dir *= -1;
+            [self switchRotation];
         }        
     }
     
@@ -138,19 +247,19 @@
     //switch directions (bounce)
     if(bounds.size.width / 2 + xOffset - scaledRadius + 2 * scaledRadius >= rightEdge) {
         //NSLog(@"Go left!");
-        xDir = -1;
+        [self goLeft];
     }
     if(bounds.size.width / 2 + xOffset -scaledRadius <= leftEdge) {
         //NSLog(@"Go right!");
-        xDir = 1;
+        [self goRight];
     }
     if(bounds.size.height / 2 + yOffset -scaledRadius <= topEdge) {
         //NSLog(@"Go down!");
-        yDir = 1;
+        [self goDown];
     }
     if(bounds.size.height / 2 + yOffset -scaledRadius + 2 * scaledRadius >= bottomEdge) {
         //NSLog(@"Go up!");
-        yDir = -1;
+        [self goUp];
     }
     
     //Change the position on the screen
@@ -161,6 +270,7 @@
     [self performSelector: @selector(setNeedsDisplay) withObject: nil afterDelay: .002];
     
 }
+
 
 
 @end
