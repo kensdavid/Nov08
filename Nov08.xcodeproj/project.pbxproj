@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		666CDCBB165988A10054BC61 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CDCBA165988A10054BC61 /* ControlView.m */; };
 		BE0867B0163B1D77005F2957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0867AF163B1D77005F2957 /* UIKit.framework */; };
 		BE0867B2163B1D77005F2957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0867B1163B1D77005F2957 /* Foundation.framework */; };
 		BE0867B4163B1D77005F2957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0867B3163B1D77005F2957 /* CoreGraphics.framework */; };
@@ -17,14 +18,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666CDCB9165988A10054BC61 /* ControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
+		666CDCBA165988A10054BC61 /* ControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
 		BE0867AB163B1D77005F2957 /* Nov08.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nov08.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0867AF163B1D77005F2957 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE0867B1163B1D77005F2957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE0867B3163B1D77005F2957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BE0867B7163B1D77005F2957 /* Nov08-Info.plist */ = {isa = PBXFileReference; path = "Nov08-Info.plist"; sourceTree = "<group>"; };
+		BE0867B7163B1D77005F2957 /* Nov08-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nov08-Info.plist"; sourceTree = "<group>"; };
 		BE0867B9163B1D77005F2957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE0867BB163B1D77005F2957 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE0867BD163B1D77005F2957 /* Nov08-Prefix.pch */ = {isa = PBXFileReference; path = "Nov08-Prefix.pch"; sourceTree = "<group>"; };
+		BE0867BD163B1D77005F2957 /* Nov08-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nov08-Prefix.pch"; sourceTree = "<group>"; };
 		BE0867BE163B1D77005F2957 /* Nov01AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nov01AppDelegate.h; sourceTree = "<group>"; };
 		BE0867BF163B1D77005F2957 /* Nov01AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nov01AppDelegate.m; sourceTree = "<group>"; };
 		BE0867CA163B2025005F2957 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 				BE0867B6163B1D77005F2957 /* Supporting Files */,
 				BE0867CA163B2025005F2957 /* View.h */,
 				BE0867CB163B2025005F2957 /* View.m */,
+				666CDCB9165988A10054BC61 /* ControlView.h */,
+				666CDCBA165988A10054BC61 /* ControlView.m */,
 			);
 			name = Nov08;
 			path = Nov01;
@@ -122,7 +127,7 @@
 		BE0867A2163B1D77005F2957 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = BE0867A5163B1D77005F2957 /* Build configuration list for PBXProject "Nov08" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -160,6 +165,7 @@
 				BE0867BC163B1D77005F2957 /* main.m in Sources */,
 				BE0867C0163B1D77005F2957 /* Nov01AppDelegate.m in Sources */,
 				BE0867CC163B2025005F2957 /* View.m in Sources */,
+				666CDCBB165988A10054BC61 /* ControlView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +237,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nov01/Nov08-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Nov01/Nov08-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = Nov08;
@@ -247,6 +254,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nov01/Nov08-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Nov01/Nov08-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = Nov08;

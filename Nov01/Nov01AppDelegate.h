@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class View;
+@class ControlView;
 
 @interface Nov01AppDelegate : UIResponder <UIApplicationDelegate> {
     View *view;
+    ControlView *controlView;
     UIWindow *_window;
+    CGFloat controlPct;
 }
 
 @property (strong, nonatomic) UIWindow *window;

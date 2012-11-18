@@ -15,8 +15,6 @@
     CGFloat yDir;
     CGFloat xOffset;
     CGFloat yOffset;
-    CGFloat xSpeed;
-    CGFloat ySpeed;
     CGFloat rotateSpeed;
     CGFloat rotateDeg;
     CGFloat speedScale;
@@ -27,6 +25,13 @@
     
     
 }
+
+
++(CGFloat) xSpeed;
++(void)setXSpeed: (CGFloat) xSpeed;
+
++(CGFloat) ySpeed;
++(void)setYSpeed: (CGFloat) ySpeed;
 
 -(void)switchX;
 
@@ -49,5 +54,7 @@
 -(void)rotateCounterClockwise;
 
 -(void)changeSpeedBy:(CGFloat) scale;
+
+
 
 @end

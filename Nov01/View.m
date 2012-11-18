@@ -7,6 +7,8 @@
 //
 
 #import "View.h"
+static CGFloat xSpeed;
+static CGFloat ySpeed;
 
 @implementation View
 
@@ -23,7 +25,7 @@
 		CGFloat h = self.bounds.size.height;
 		self.bounds = CGRectMake(-w / 2, -h / 2, w, h);
          */
-        scale = 1;        
+        scale = 1;
         speedScale = 1;
         factor = .001 * speedScale;
         xDir = 1;
@@ -67,6 +69,20 @@
 
     }
     return self;
+}
+
++(CGFloat)xSpeed {
+    return xSpeed;
+}
++(void)setXSpeed: (CGFloat) newXSpeed {
+    xSpeed = newXSpeed;
+}
+
++(CGFloat)ySpeed {
+    return ySpeed;
+}
++(void)setYSpeed: (CGFloat) newYSpeed {
+    ySpeed = newYSpeed;
 }
 
 - (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {

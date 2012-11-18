@@ -8,6 +8,7 @@
 
 #import "Nov01AppDelegate.h"
 #import "View.h"
+#import "ControlView.h"
 
 @implementation Nov01AppDelegate
 
@@ -17,18 +18,35 @@
 {
     UIScreen *screen = [UIScreen mainScreen];
     CGRect applicationFrame = screen.applicationFrame;
+    controlPct = .25;
+    CGRect actionFrame = CGRectMake(applicationFrame.origin.x,
+                                    applicationFrame.origin.y,
+                                    applicationFrame.size.width,
+                                    (1 - controlPct) * applicationFrame.size.height);
+    CGRect controlFrame = CGRectMake(applicationFrame.origin.x,
+                                     applicationFrame.origin.y + (1 - controlPct) * applicationFrame.size.height,
+                                     applicationFrame.size.width,
+                                     controlPct * applicationFrame.size.height);
+    
     CGRect bounds = screen.bounds;
+    
     NSLog(@"application:didFinishLaunchingWithOptions: bounds.origin == (%g, %g), bounds.size == %g × %g",
           bounds.origin.x,
           bounds.origin.y,
           bounds.size.width,
           bounds.size.height);
     
-    view = [[View alloc] initWithFrame: applicationFrame];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    view = [[View alloc] initWithFrame: actionFrame];
     [self.window addSubview:view];
+    
+    controlView = [[ControlView alloc] initWithFrame: controlFrame];
+    [self.window addSubview:controlView];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
