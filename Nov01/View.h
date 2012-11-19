@@ -9,19 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface View : UIView {
-    float scale;
-    float factor;
-    CGFloat xDir;
-    CGFloat yDir;
-    CGFloat xOffset;
-    CGFloat yOffset;
-    CGFloat rotateSpeed;
-    CGFloat rotateDeg;
-    CGFloat speedScale;
-    CGFloat faceColorR;
-    CGFloat faceColorG;
-    CGFloat faceColorB;
-    int rotationDir;
+    
     
     
 }
@@ -32,6 +20,32 @@
 
 +(CGFloat) ySpeed;
 +(void)setYSpeed: (CGFloat) ySpeed;
+
+
++(CGFloat) rotateSpeed;
++(float) scale;
++(float) factor;
++(CGFloat) xDir;
++(CGFloat) yDir;
++(CGFloat) xOffset;
++(CGFloat) yOffset;
++(CGFloat) rotateDeg;
++(CGFloat) speedScale;
++(CGFloat) faceColorR;
++(CGFloat) faceColorG;
++(CGFloat) faceColorB;
++(int) rotationDir;
++(int) stopOrGo;
++(void)switchStopOrGo;
+
++(CGFloat) rColor;
++(void) setRColor: (CGFloat) newRColor;
++(CGFloat) gColor;
++(void) setGColor: (CGFloat) newGColor;
++(CGFloat) bColor;
++(void) setBColor: (CGFloat) newBRColor;
+
++(void) onOffRotate;
 
 -(void)switchX;
 

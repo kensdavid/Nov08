@@ -18,7 +18,7 @@
 {
     UIScreen *screen = [UIScreen mainScreen];
     CGRect applicationFrame = screen.applicationFrame;
-    controlPct = .25;
+    controlPct = .20;
     CGRect actionFrame = CGRectMake(applicationFrame.origin.x,
                                     applicationFrame.origin.y,
                                     applicationFrame.size.width,

@@ -9,6 +9,26 @@
 #import "View.h"
 static CGFloat xSpeed;
 static CGFloat ySpeed;
+static CGFloat rotateSpeed;
+static CGFloat scale = 1;
+static CGFloat speedScale = 1;
+static CGFloat factor;
+static CGFloat xDir = 1;
+static CGFloat yDir = 1;
+static CGFloat xOffset = 0;
+static CGFloat yOffset = 0;
+static CGFloat xSpeed;
+static CGFloat ySpeed;
+static CGFloat rotateSpeed;
+static CGFloat rotateDeg = 0;
+static int rotationDir = 1; //clockwise direction
+static CGFloat faceColorR = 1.0;
+static CGFloat faceColorG = 1.0;
+static CGFloat faceColorB = 0.0;
+static CGFloat rColor = 1.0;
+static CGFloat gColor = 1.0;
+static CGFloat bColor = 1.0;
+static int stopOrGo = 1;
 
 @implementation View
 
@@ -17,7 +37,8 @@ static CGFloat ySpeed;
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:1.0];
+        NSLog(@"%g", rColor);
         //Keep the size of the view the same,
 		//but let the center of the view be the origin.
 		/*
@@ -25,21 +46,10 @@ static CGFloat ySpeed;
 		CGFloat h = self.bounds.size.height;
 		self.bounds = CGRectMake(-w / 2, -h / 2, w, h);
          */
-        scale = 1;
-        speedScale = 1;
         factor = .001 * speedScale;
-        xDir = 1;
-        yDir = 1;
-        xOffset = 0;
-        yOffset = 0;
         xSpeed = .15 * speedScale;
         ySpeed = .15 * speedScale;
-        rotateSpeed = .1 * speedScale;
-        rotateDeg = 0;
-        rotationDir = 1; //clockwise direction
-        faceColorR = 1.0;
-        faceColorG = 1.0;
-        faceColorB = 0.0;
+        [View setRotateSpeed:.1 * speedScale];
         
         static const UISwipeGestureRecognizerDirection a[] = {
 			UISwipeGestureRecognizerDirectionRight,
@@ -83,6 +93,62 @@ static CGFloat ySpeed;
 }
 +(void)setYSpeed: (CGFloat) newYSpeed {
     ySpeed = newYSpeed;
+}
+
++(CGFloat) rotateSpeed{
+    return rotateSpeed;
+}
+
++(void) setRotateSpeed: (CGFloat) newRSpeed {
+    rotateSpeed = newRSpeed;
+}
+
++(int) stopOrGo {
+    return stopOrGo;
+}
+
++(void)switchStopOrGo{
+    if(stopOrGo == 1){
+        stopOrGo = 0;
+    }
+    else {
+        stopOrGo = 1;
+    }
+}
+
++(void) onOffRotate {
+    if(rotateSpeed > 0){
+        [View setRotateSpeed:0];
+    }
+    else{
+        [View setRotateSpeed:.1 * speedScale];
+    }
+}
+
++(CGFloat) scale{ return scale; }
++(CGFloat) speedScale{ return speedScale; }
++(CGFloat) factor;{ return factor; }
++(CGFloat) xDir{ return xDir; }
++(CGFloat) yDir{ return yDir; }
++(CGFloat) xOffset{ return xOffset; }
++(CGFloat) yOffset{ return yOffset; }
++(CGFloat) rotateDeg{ return rotateDeg; }
++(int) rotationDir{ return rotationDir; }
++(CGFloat) faceColorR{ return faceColorR; }
++(CGFloat) faceColorG{ return faceColorG; }
++(CGFloat) faceColorB{ return faceColorB; }
++(CGFloat) rColor{ return rColor; }
++(CGFloat) gColor{ return gColor; }
++(CGFloat) bColor{ return bColor; }
+
++(void) setRColor: (CGFloat) newRColor {
+    rColor = newRColor;
+}
++(void) setGColor: (CGFloat) newGColor {
+    gColor = newGColor;
+}
++(void) setBColor: (CGFloat) newBColor {
+    bColor = newBColor;
 }
 
 - (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
@@ -217,6 +283,9 @@ static CGFloat ySpeed;
           );*/
     
     // Drawing code
+    self.backgroundColor = [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:1.0];
+    //NSLog(@"%g", rColor);
+    
     CGRect bounds = self.bounds;
     /*CGFloat rightEdge = bounds.size.width / 2; //After translate
     CGFloat leftEdge = - bounds.size.width / 2; //After translate
@@ -282,7 +351,7 @@ static CGFloat ySpeed;
     CGContextFillPath(c);
     
     //Grow by the factor
-    scale += factor;
+    scale += factor * stopOrGo;
     
     //Change growth to shrinking, and back
     if(scale > 1.2 || scale < .1){

@@ -14,6 +14,18 @@
     UILabel *xSpeedLabel;
     UISlider *ySpeedSlider;
     UILabel *ySpeedLabel;
+    
+    UISwitch *rotateSwitch;
+    UILabel *rotateLabel;
+    UISwitch *bounceSwitch;
+    UILabel *bounceLabel;
+    
+    UISlider *rColorSlider;
+    UILabel *rColorLabel;
+    UISlider *gColorSlider;
+    UILabel *gColorLabel;
+    UISlider *bColorSlider;
+    UILabel *bColorLabel;
 }
 
 @end
